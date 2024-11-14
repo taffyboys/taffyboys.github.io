@@ -1,4 +1,5 @@
 ---
+modify_date: 2014-11-14
 title: 琴动流年
 tags: SpiritBreath
 article_header:
@@ -9,6 +10,6 @@ article_header:
 
 
 
-<!-- A Post with Header Image, See [Page layout](https://kitian616.github.io/jekyll-TeXt-theme/samples.html#page-layout) for more examples. --》
+<!-- A Post with Header Image, See [Page layout](https://kitian616.github.io/jekyll-TeXt-theme/samples.html#page-layout) for more examples. -->
 
 <!--more-->
