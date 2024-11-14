@@ -4,7 +4,7 @@ tags: SpiritBreath
 article_header:
   type: cover
   image:
-    src: /screenshot.jpg
+    src: /琴动流年4.jpg
 ---
 
 
