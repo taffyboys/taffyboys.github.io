@@ -1,20 +1,82 @@
-<main class="container mx-auto mt-12 px-4 max-w-4xl">
-    <div class="slanted-box bg-blue-600 p-8 mb-10 border-b-8 border-white shadow-[15px_15px_0px_#000b1a]">
-        <div class="slanted-content text-white">
-            <p class="text-cyan-200 text-sm font-bold mb-2 uppercase italic">Data Archive // <%= page.date.format('YYYY-MM-DD') %></p>
-            <h1 class="text-5xl font-black italic uppercase"><%= page.title %></h1>
+<main class="container mx-auto mt-12 px-4 max-w-4xl animate-p3-slide">
+    
+    <div class="flex justify-end mb-4">
+        <div class="slanted-box bg-white text-black px-4 py-1 flex items-center gap-2 border-r-4 border-blue-600 shadow-sm">
+            <div class="slanted-content flex items-center gap-2">
+                <span class="text-[10px] font-black tracking-tighter text-gray-500">MOON_PHASE:</span>
+                <% 
+                    const timestamp = page.date.valueOf();
+                    const cycle = 29.5 * 24 * 60 * 60 * 1000;
+                    const phase = (timestamp % cycle) / cycle;
+                    let phaseName = ""; let phaseIcon = "";
+                    if (phase < 0.06 || phase > 0.94) { phaseName = "FULL MOON"; phaseIcon = "●"; }
+                    else if (phase < 0.25) { phaseName = "WANING"; phaseIcon = "◑"; }
+                    else if (phase < 0.50) { phaseName = "NEW MOON"; phaseIcon = "○"; }
+                    else { phaseName = "WAXING"; phaseIcon = "◐"; }
+                %>
+                <span class="text-blue-600 font-black animate-pulse text-lg"><%= phaseIcon %></span>
+                <span class="text-sm font-black italic"><%= phaseName %></span>
+            </div>
         </div>
     </div>
 
-    <article class="slanted-box bg-white text-black p-8 md:p-12 mb-20 shadow-[20px_20px_0px_rgba(0,102,255,0.3)]">
-        <div class="slanted-content prose prose-slate max-w-none prose-headings:italic prose-headings:font-black">
+    <div class="flex flex-wrap gap-3 mb-8">
+        <% 
+            // 优先读取文章 Front-matter 里的数据，若无则显示默认 MAX
+            const stats = [
+                { name: 'ACADEMICS', level: page.academics || 'MAX', color: 'bg-cyan-400', w: page.academics_p || 'w-full' },
+                { name: 'CHARM', level: page.charm || 'MAX', color: 'bg-pink-500', w: page.charm_p || 'w-full' },
+                { name: 'COURAGE', level: page.courage || 'MAX', color: 'bg-yellow-400', w: page.courage_p || 'w-full' }
+            ];
+        %>
+        <% stats.forEach(function(stat){ %>
+            <div class="slanted-box bg-slate-900/90 border-r-4 border-white p-2 flex-1 min-w-[120px]">
+                <div class="slanted-content">
+                    <div class="flex justify-between items-end mb-1">
+                        <span class="text-[9px] font-black tracking-widest text-blue-500"><%= stat.name %></span>
+                        <span class="text-[10px] font-bold text-white italic"><%= stat.level %></span>
+                    </div>
+                    <div class="w-full h-1 bg-gray-800">
+                        <div class="<%= stat.color %> h-full <%= stat.w %> shadow-[0_0_5px_#fff]"></div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="slanted-box bg-blue-600 p-8 mb-10 border-b-8 border-white shadow-[15px_15px_0px_#000b1a]">
+        <div class="slanted-content text-white">
+            <div class="flex justify-between items-start border-b border-blue-400/50 pb-2 mb-4">
+                <p class="text-cyan-200 text-xs font-bold uppercase italic">
+                    Data Archive // <%= page.date.format('YYYY.MM.DD') %>
+                </p>
+                <p class="text-[10px] font-black text-white/50 tracking-widest">P3R_SYS_v1.0</p>
+            </div>
+            <h1 class="text-5xl font-black italic uppercase leading-none tracking-tighter">
+                <%= page.title %>
+            </h1>
+        </div>
+    </div>
+
+    <article class="slanted-box bg-white text-black p-8 md:p-12 mb-16 shadow-[20px_20px_0px_rgba(0,102,255,0.2)]">
+        <div class="slanted-content prose prose-slate max-w-none 
+                    prose-headings:italic prose-headings:font-black prose-headings:uppercase
+                    prose-p:leading-relaxed prose-strong:text-blue-600">
             <%- page.content %>
         </div>
     </article>
     
+    <div class="flex items-center gap-4 my-10 opacity-50">
+    <div class="h-[2px] bg-blue-600 flex-1"></div>
+    <div class="text-[10px] font-black italic tracking-widest text-blue-400">LOG_END // DISCONNECTED</div>
+    <div class="h-[2px] bg-blue-600 w-12"></div>
+    </div>
+
     <div class="mb-20">
-        <a href="/" class="slanted-box bg-blue-500 text-white px-8 py-2 inline-block hover:bg-cyan-400 transition-colors">
-            <div class="slanted-content font-bold italic">< RETURN</div>
+        <a href="/" class="group slanted-box bg-blue-600 text-white px-8 py-3 inline-block hover:bg-white hover:text-blue-600 transition-all duration-300 border-l-4 border-white">
+            <div class="slanted-content font-black italic tracking-widest flex items-center gap-2">
+                <span>< RETURN</span>
+            </div>
         </a>
     </div>
 </main>
