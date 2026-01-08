@@ -162,5 +162,33 @@
             <p>© <%= new Date().getFullYear() %> OPERATION MEMENTO. </span> // ARCHIVE BY <%= config.author %></p>
         </div>
     </footer>
+
+    <div class="bg-black pt-16 pb-12 overflow-hidden border-t-4 border-blue-400 relative z-10">
+        <div class="container mx-auto px-8">
+            <div class="flex items-center gap-4 mb-6">
+                <h3 class="text-blue-500 font-black italic text-2xl tracking-tighter uppercase">S.Link Contacts</h3>
+                <div class="h-[2px] flex-1 bg-gradient-to-r from-blue-500 to-transparent"></div>
+            </div>
+
+            <div class="flex flex-wrap gap-6 justify-end">
+                <% (config.friends || []).forEach(function(friend){ %>
+                    <a href="<%= friend.url %>" target="_blank" class="group relative">
+                        <div class="flex items-center gap-3 bg-white/5 px-4 py-2 border-r-4 border-transparent group-hover:border-blue-500 group-hover:bg-white transition-all duration-300 transform -skew-x-12">
+                            <div class="flex items-center gap-3 transform skew-x-12">
+                                <span class="text-blue-400 font-mono text-[10px] group-hover:text-blue-600">RANK MAX</span>
+                                <span class="text-white group-hover:text-black font-bold italic tracking-tight uppercase text-sm">
+                                    <%= friend.name %>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
+        </div>
+        
+        <div class="absolute -bottom-4 -left-4 text-white/5 text-8xl font-black italic select-none pointer-events-none">
+            SOCIAL LINKS
+        </div>
+    </div>
 </body>
 </html>

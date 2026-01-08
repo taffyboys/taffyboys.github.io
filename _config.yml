@@ -102,3 +102,10 @@ theme: p3r
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# 友情链接数据
+friends:
+  - name: "Zuoye's blog"
+    url: "https://blog.zuoye.win"
+    desc: "影时间的观测者"
+    avatar: "https://api.dicebear.com/7.x/pixel-art/svg?seed=1"
