@@ -104,6 +104,40 @@
             background: #0066ff;
             color: white !important;
         }
+        .drop-shadow-blue-glow {
+                filter: drop-shadow(0 0 8px rgba(0, 102, 255, 0.8)) 
+                        drop-shadow(0 0 15px rgba(0, 217, 255, 0.4));
+            }
+
+            /* 模拟 P3R 的缓慢漂浮感 */
+            @keyframes moonSway {
+                0%, 100% { transform: rotate(-5deg) translate(0, 0); }
+                50% { transform: rotate(5deg) translate(-5px, -5px); }
+            }
+            .animate-moon-sway {
+                animation: moonSway 4s ease-in-out infinite;
+            }
+
+            /* 像素扫描线 */
+            .bg-scanlines {
+                background: linear-gradient(
+                    to bottom,
+                    transparent 50%,
+                    rgba(0, 102, 255, 0.2) 50%
+                );
+                background-size: 100% 4px;
+            }
+
+            /* 针对侧边栏卡片的微调 */
+            .slanted-box::after {
+                content: "SYSTEM_MONITOR";
+                position: absolute;
+                bottom: 4px;
+                left: 10px;
+                font-size: 8px;
+                color: rgba(0, 0, 0, 0.2);
+                font-family: monospace;
+            }
     </style>
 </head>
 <body class="bg-gradient-animate min-h-screen">
