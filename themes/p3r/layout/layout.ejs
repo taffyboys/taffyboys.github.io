@@ -49,6 +49,61 @@
             border-bottom: 2px solid #00d9ff;
             background: rgba(0, 102, 255, 0.1);
         }
+
+        /* 针对正文内容的深度定制 */
+        .prose {
+            color: #1a1a1a; /* 稍微加深文字颜色，提高易读性 */
+        }
+
+        /* 1. 让所有的二级标题带上色块和斜切感 */
+        .prose h2 {
+            background: #0066ff;
+            color: white !important;
+            padding: 0.5rem 1rem;
+            transform: skewX(-10deg);
+            display: inline-block;
+            margin-top: 2rem !important;
+            box-shadow: 6px 6px 0px #000b1a;
+        }
+
+        /* 2. 让三级标题带上底部装饰线 */
+        .prose h3 {
+            border-left: 6px solid #0066ff;
+            padding-left: 0.75rem;
+            font-style: italic;
+            color: #0044cc !important;
+            text-transform: uppercase;
+        }
+
+        /* 3. 代码块美化：加入“系统终端”感 */
+        .prose pre {
+            background: #dce2eb !important;
+            border-left: 4px solid #00d9ff;
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        /* 行内代码 */
+        .prose :not(pre) > code {
+            background-color: #0066ff !important;
+            color: white !important;
+            padding: 0.1rem 0.4rem !important;
+            font-style: normal !important;
+        }
+        .prose :not(pre) > code::before, .prose :not(pre) > code::after { content: "" !important; }
+
+        /* 4. 让链接具有动态感 */
+        .prose a {
+            background: linear-gradient(0deg, #0066ff 2px, transparent 2px);
+            transition: all 0.2s;
+            font-weight: bold;
+            color: #0066ff !important;
+        }
+        .prose a:hover {
+            background: #0066ff;
+            color: white !important;
+        }
     </style>
 </head>
 <body class="bg-gradient-animate min-h-screen">

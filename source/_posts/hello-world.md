@@ -32,4 +32,15 @@ courage_p: "w-[30%]"
 * **快捷同步:** 运行 `hexo g -d` 即可将记忆上传至影时间。
 * **属性成长:** 每篇新文章都是一次属性加成的机会。
 
+### 04 / 测试代码块 [MEMO]
+
+```c
+#include<stdio.h>
+
+int main() {
+    printf("Hello Persona.");
+    return 0;
+}
+```
+
 # 祝你愉快，特种课成员。
