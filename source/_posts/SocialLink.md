@@ -1,12 +1,12 @@
 ---
 title: Social Link设置
 date: 2026-01-08 21:00:00
-academics: "Rank 5"
-academics_p: "w-[50%]"
-charm: "Rank 4"
-charm_p: "w-[40%]"
-courage: "Rank 3"
-courage_p: "w-[30%]"
+academics: "Rank 1"
+academics_p: "w-[10%]"
+charm: "Rank 2"
+charm_p: "w-[20%]"
+courage: "Rank 2"
+courage_p: "w-[20%]"
 ---
 
 > **Social Link:** 本文讲述了如何设置社群系统

@@ -55,8 +55,42 @@
             color: #1a1a1a; /* 稍微加深文字颜色，提高易读性 */
         }
 
-        /* 1. 让所有的二级标题带上色块和斜切感 */
-        .prose h2 {
+        /* 定制正文中的分割线 (---) */
+        .prose hr {
+            margin-top: 4rem !important;    /* 极大的上边距 */
+            margin-bottom: 4rem !important; /* 极大的下边距 */
+            border: none;
+            height: 2px;
+            /* 使用渐变色，模拟 P3R 的霓虹蓝色扫描感 */
+            background: linear-gradient(to right, 
+                transparent, 
+                var(--p3-blue) 15%, 
+                #00d9ff 50%, 
+                var(--p3-blue) 85%, 
+                transparent
+            );
+            position: relative;
+            overflow: visible;
+        }
+
+        /* 在分割线中间加入一个小的装饰点，增加 UI 精致度 */
+        .prose hr::after {
+            content: "SECTION_END";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) skewX(-15deg);
+            background: var(--p3-dark);
+            padding: 0 1rem;
+            color: var(--p3-blue);
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.2rem;
+            opacity: 0.8;
+        }
+
+        /* 1. 让所有的一级标题带上色块和斜切感 */
+        .prose h1 {
             background: #0066ff;
             color: white !important;
             padding: 0.5rem 1rem;
@@ -66,14 +100,48 @@
             box-shadow: 6px 6px 0px #000b1a;
         }
 
-        /* 2. 让三级标题带上底部装饰线 */
-        .prose h3 {
+        /* 2. 让二级标题带上底部装饰线 */
+        .prose h2 {
             border-left: 6px solid #0066ff;
             padding-left: 0.75rem;
             font-style: italic;
             color: #0044cc !important;
             text-transform: uppercase;
         }
+
+        .prose table {
+            display: block;
+            width: 100%;
+            overflow: auto;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        .prose table tr {
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+        }
+
+        /* 隔行变色 */
+        .prose table tr:nth-child(2n) {
+            background-color: #f8f8f8;
+        }
+
+        .prose table th, .prose table td {
+            padding: 6px 13px;
+            border: 1px solid #ddd;
+        }
+
+        .prose table th {
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+
+        /* 分段间隔变大
+        .prose p {
+            margin-bottom: 1.5rem !important;
+            line-height: 1.8;
+        } */
 
         /* 3. 代码块美化：加入“系统终端”感 */
         .prose pre {
