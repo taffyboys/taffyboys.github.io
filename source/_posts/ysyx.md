@@ -1,6 +1,6 @@
 ---
 title: 一生一芯
-date: comming
+date: 2026-01-09
 academics: "Rank 3"
 academics_p: "w-[30%]"
 charm: "Rank 1"
