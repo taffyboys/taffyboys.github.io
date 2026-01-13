@@ -31,3 +31,6 @@ friends:
 ```
 
 然后在`index.ejs`或者`layout.ejs`中添加相应的美化和引用，以后在`_config.yml`中即可方便的添加友情链接
+
+---
+
