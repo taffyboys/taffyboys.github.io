@@ -408,4 +408,10 @@ addi是I-Type，它将一个立即数和rs1的内容相加后存到rd中。
 
 ---
 
+## 已完成F阶段
+
+视频链接https://www.bilibili.com/video/BV1pKz7BSEVc/
+
+---
+
 # 祝你愉快，一生一芯成员。
