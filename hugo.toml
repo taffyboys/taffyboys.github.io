@@ -1,0 +1,29 @@
+baseURL = 'https://taffyboys.github.io/'
+title = '我的博客'
+enableEmoji = true
+
+[languages]
+  [languages.zh-cn]
+    locale = 'zh-cn'
+    label = '中文'
+    weight = 1
+
+[params]
+  description = '记录想法与笔记。'
+  author = ''
+
+# tags 和 categories 是 Hugo 默认分类法，这里显式声明以示清晰
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[markup.highlight]
+  style = 'github'
+  lineNos = true
+  tabWidth = 4
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[services.rss]
+  limit = 20

@@ -1,0 +1,19 @@
+{{ define "main" }}
+<header class="page-header">
+    <h1>{{ .Site.Title }}</h1>
+    {{ with .Site.Params.description }}<p class="page-desc">{{ . }}</p>{{ end }}
+</header>
+
+<div class="article-list">
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ range first 10 $posts }}
+        {{ partial "article-card.html" . }}
+    {{ end }}
+</div>
+
+{{ if gt (len $posts) 10 }}
+<div class="see-all">
+    <a href="{{ "posts/" | relURL }}">查看全部文章</a>
+</div>
+{{ end }}
+{{ end }}

@@ -1,0 +1,18 @@
+<article class="article-card">
+    <h2 class="card-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h2>
+    <div class="card-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+    </div>
+    {{ with .Description }}
+    <p class="card-desc">{{ . }}</p>
+    {{ end }}
+    {{ with .Params.tags }}
+    <div class="tag-list">
+        {{ range . }}
+        <a class="tag-pill" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>
+        {{ end }}
+    </div>
+    {{ end }}
+</article>
