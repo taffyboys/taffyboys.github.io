@@ -1,5 +1,5 @@
 baseURL = 'https://taffyboys.github.io/'
-title = '我的博客'
+title = "📝Mocong's Blogs"
 enableEmoji = true
 
 [languages]
@@ -19,7 +19,7 @@ enableEmoji = true
 
 [markup.highlight]
   style = 'github'
-  lineNos = true
+  lineNos = false
   tabWidth = 4
 
 [markup.goldmark.renderer]

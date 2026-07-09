@@ -6,7 +6,10 @@
         <h1 class="article-title">{{ .Title }}</h1>
         <div class="article-meta">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+            <span class="meta-separator">/</span>
+            <span>{{ .ReadingTime }} 分钟阅读</span>
         </div>
+        {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
     </header>
 
     <div class="article-content">

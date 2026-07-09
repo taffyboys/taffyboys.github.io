@@ -1,15 +1,25 @@
 {{ define "main" }}
-<header class="page-header">
-    <h1>{{ .Site.Title }}</h1>
-    {{ with .Site.Params.description }}<p class="page-desc">{{ . }}</p>{{ end }}
-</header>
+<section class="hero">
+    <p class="eyebrow">Notes & Essays</p>
+    <h1>在温和的留白里，记录想法与笔记。</h1>
+    {{ with .Site.Params.description }}<p class="hero-desc">{{ . }}</p>{{ end }}
+</section>
 
+<section class="home-section-header">
+    <p class="eyebrow">Latest Writing</p>
+    <h2>最近文章</h2>
+</section>
+
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ if $posts }}
 <div class="article-list">
-    {{ $posts := where .Site.RegularPages "Section" "posts" }}
     {{ range first 10 $posts }}
         {{ partial "article-card.html" . }}
     {{ end }}
 </div>
+{{ else }}
+<p class="empty-state">还没有发布文章。</p>
+{{ end }}
 
 {{ if gt (len $posts) 10 }}
 <div class="see-all">

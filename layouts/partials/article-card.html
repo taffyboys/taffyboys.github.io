@@ -4,6 +4,8 @@
     </h2>
     <div class="card-meta">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        <span class="meta-separator">/</span>
+        <span>{{ .ReadingTime }} 分钟阅读</span>
     </div>
     {{ with .Description }}
     <p class="card-desc">{{ . }}</p>
