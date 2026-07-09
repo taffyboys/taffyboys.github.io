@@ -58,6 +58,56 @@ hugo server -D
 
 保存 markdown 文件后，页面会自动刷新。
 
+## 各种资源的存放位置
+
+| 资源类型 | 存放目录 | 说明 |
+|---------|---------|------|
+| 文章（`.md` 文件） | `content/posts/` | 每篇文章一个 `.md` 文件，文件名决定 URL 路径 |
+| 图片 | `static/images/` | 构建后原样复制到站点根目录，用绝对路径引用 |
+| 其他静态文件 | `static/` | favicon、字体、PDF 等，构建后原样提供 |
+| 样式表 | `assets/css/` | 通过 Hugo Pipes 处理（压缩等），不建议直接放 `static/` |
+| 文章骨架模板 | `archetypes/` | `hugo new` 命令使用的模板 |
+
+### 图片用法
+
+把图片放到 `static/images/` 目录（如果目录不存在，自己创建即可），然后在 markdown 中用**绝对路径**引用：
+
+```markdown
+![图片描述](/images/screenshot.png)
+```
+
+构建后图片会自动出现在 `https://taffyboys.github.io/images/screenshot.png`。
+
+### 添加已有的 markdown 文章
+
+如果你已经有写好的 `.md` 文件，直接把它复制到 `content/posts/` 目录，然后在文件最顶部加上 frontmatter 即可：
+
+```toml
++++
+title = '文章标题'
+date = 2026-07-09
+description = '简短摘要'
+tags = ['标签1']
+categories = ['分类名']
+draft = false
++++
+
+（这里是你原来的 markdown 正文...）
+```
+
+### 项目目录结构总览
+
+```
+blog/
+├── content/posts/     ← 文章放这里
+├── static/images/     ← 图片放这里
+├── static/            ← 其他静态文件（favicon 等）
+├── assets/css/        ← 样式表
+├── layouts/           ← 页面模板（一般不需要改）
+├── archetypes/        ← 文章骨架模板
+└── hugo.toml          ← 站点配置
+```
+
 ## 推送到 GitHub Pages
 
 文章写好后，通过 Git 推送到 GitHub，Actions 会自动构建和部署：
