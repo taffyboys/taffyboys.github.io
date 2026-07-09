@@ -88,16 +88,3 @@ git push
 | `git add -A && git commit -m "说明" && git push` | 推送所有改动 |
 
 就是这么简单——写 markdown，`git push`，剩下的交给 Hugo 和 GitHub Actions。
-+++
-title = 'How to Publish Posts'
-date = '2026-07-08T22:48:00+08:00'
-description = ''
-tags = []
-categories = []
-draft = true
-+++
-+++
-date = '2026-07-08T22:48:00+08:00'
-draft = true
-title = 'How to Publish Posts'
-+++
